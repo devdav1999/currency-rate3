@@ -3,6 +3,23 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        rates: [],
+    };
+}
+
+
+  componentDidMount() {
+    const url = "https://api.exchangeratesapi.io/latest";
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log("the data", data);
+        });
+  }
+
   render() {
     return (
     <div>
