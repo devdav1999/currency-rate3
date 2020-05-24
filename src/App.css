@@ -22,3 +22,87 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+:root {
+	--bg-color: #827397;
+	--page-spacing: 40px;
+}
+
+body{background: var(--bg-color);}
+
+.TopNav{
+	background-color: #00004d;
+	margin-bottom: 50px;
+	color: yellow;
+	;}
+
+.currencyNav{
+  height: 150px;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: yellow;
+  align-items: flex-start;
+  align-content: space-around;
+}
+
+.countrySelection{
+  padding: 5px;
+}
+
+.countrySelection:hover{
+	background-color: purple;
+}
+
+.BarContainer{
+	margin-left: var(--page-spacing);
+	margin-right: var(--page-spacing);
+	margin-top: 100px;
+	display:  grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: repeat(9, 1fr);
+	grid-column-gap: 20px;
+	align-items: end;
+	height: 625px;
+	width: 1000px;
+
+}
+
+.Bar{
+	position: relative;
+	background-color: yellow;
+	text-align:center;
+	justify-content: center;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+	bottom: 0px;
+	max-height: 100%;
+	min-width: 100px;
+	margin-left: var(--page-spacing);
+	margin-right: var(--page-spacing);
+	font-size: 24px;
+	color: purple;
+	font-family: 'Righteous', cursive;
+	transition: background-color .9s;
+}
+
+.Bar:hover{
+	background-color: #bccb4d;
+}
+
+h1, h5{
+	text-align:center;
+	color: yellow;
+	font-family: 'Righteous', cursive;
+	margin: 0;
+}
+
+
+body{
+	padding: 0;
+	margin: 0;
+}

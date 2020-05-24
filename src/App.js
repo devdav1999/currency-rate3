@@ -5,15 +5,25 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+    <div>
+      <div class='TopNav'>
+      <h1>Currency Rates Today</h1>
+      <h5>Please click on bar to find out current rate for base currency (default is EUR)</h5>
+      
+      <div class="CurrencyChooser">
+        <label>Base currency:
+          <select onchange="changebase()" class="CurrencyChooser-select">
+          </select>
+        </label>
       </div>
+      
+      <div class='currencyNav'></div>
+      </div>
+      
+      
+      <div class="BarContainer">
+      </div>
+    </div>
     );
   }
 }
