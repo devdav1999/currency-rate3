@@ -7,6 +7,7 @@ function App() {
   const [mainCurrencies, setMainCurrencies] = useState(["HKD", "USD", "AUD", "GBP", "CAD"]);
   const [countries, setCountries] = useState('');
   const [numbers, setNumbers] = useState('');
+  const [rates, setRates] = useState('');
   
 
   function doFetch() {
@@ -23,25 +24,36 @@ function App() {
             //   countries: Object.keys(currencyData),
             //   numbers: Object.values(currencyData),
             // });
+            setRates(currencyData);
             setMainCurrencies(mainCurrencies);
             setCountries(Object.keys(currencyData));
             setNumbers(Object.values(currencyData));
         });
   }
+
+
   useEffect(doFetch, []);
 
   return (
     <div>
-      <div class='TopNav'>
+      <div className='TopNav'>
       <h1>Currency Rates Today</h1>
       <h5>Please click on bar to find out current rate for Euro Base Currency</h5>
-      <div class='currencyNav'></div>
+      <div className='currencyNav'></div>
       </div>
       
       
-      <div class="BarContainer">
+      <div className="BarContainer">
+      {
+        mainCurrencies
+        .map(mainCurrency =>(
+        <div className='Bar'>
+        {mainCurrency}
+        </div>
+        ))
+        }
       </div>
-    </div>
+   </div>
    );
 }
 
