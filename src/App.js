@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        baseCurrency: "EUR",
-        mainCurrencies: ["HKD", "USD", "AUD", "GBP", "CAD"],
-        countries: null,
-        numbers: null,
-    };
-}
 
+function App() {
+  const [baseCurrency, setBaseCurrency] = useState('EUR');
+  const [mainCurrencies, setMainCurrencies] = useState(["HKD", "USD", "AUD", "GBP", "CAD"]);
+  const [countries, setCountries] = useState('');
+  const [numbers, setNumbers] = useState('');
+  
 
-  componentDidMount() {
+  function doFetch() {
     const url = "https://api.exchangeratesapi.io/latest";
     const currencyData = [];
     fetch(url)
@@ -24,18 +19,18 @@ class App extends Component {
             console.log(data.rates);
             currencyData.push(data.rates);
             console.log(currencyData);
+            // this.setState({
+            //   countries: Object.keys(currencyData),
+            //   numbers: Object.values(currencyData),
+            // });
+            setMainCurrencies(mainCurrencies);
+            setCountries(Object.keys(currencyData));
+            setNumbers(Object.values(currencyData));
         });
-
-        this.setState({
-          countries: Object.keys(currencyData),
-          numbers: Object.values(currencyData),
-          });
   }
+  useEffect(doFetch, []);
 
-  
-
-  render() {
-    return (
+  return (
     <div>
       <div class='TopNav'>
       <h1>Currency Rates Today</h1>
@@ -47,8 +42,8 @@ class App extends Component {
       <div class="BarContainer">
       </div>
     </div>
-    );
-  }
+   );
 }
+
 
 export default App;
