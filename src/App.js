@@ -36,7 +36,16 @@ function App() {
       <div className='TopNav'>
       <h1>Currency Rates Today</h1>
       <h5>Please click on bar to find out current rate for Euro Base Currency</h5>
-      <div className='currencyNav'></div>
+      <div className='currencyNav'>
+      {
+        rates
+        .map(rate =>(
+            <div className='countrySelection'>
+            {rate[0]}
+            </div>
+        ))
+        }
+      </div>
       </div>
       
       
