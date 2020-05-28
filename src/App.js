@@ -5,8 +5,6 @@ import './App.css';
 function App() {
   const [baseCurrency, setBaseCurrency] = useState('EUR');
   const [mainCurrencies, setMainCurrencies] = useState(["HKD", "USD", "AUD", "GBP", "CAD"]);
-  const [countries, setCountries] = useState('');
-  const [numbers, setNumbers] = useState('');
   const [rates, setRates] = useState([]);
   
 
@@ -28,6 +26,12 @@ function App() {
         });
   }
 
+  function addCurrency(event){
+    const currency = event.target.textContent;
+    setMainCurrencies([...mainCurrencies, currency])
+
+  }
+ 
 
   useEffect(doFetch, []);
 
@@ -40,9 +44,9 @@ function App() {
       {
         rates
         .map(rate =>(
-            <div className='countrySelection'>
+            <button className='countrySelection' onClick={addCurrency}>
             {rate[0]}
-            </div>
+            </button>
         ))
         }
       </div>
