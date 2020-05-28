@@ -3,7 +3,6 @@ import './App.css';
 
 
 function App() {
-  const [baseCurrency, setBaseCurrency] = useState('EUR');
   const [mainCurrencies, setMainCurrencies] = useState(["HKD", "USD", "AUD", "GBP", "CAD"]);
   const [rates, setRates] = useState([]);
   
@@ -15,14 +14,8 @@ function App() {
         .then(data => {
             console.log("the data", data);
             console.log(data.rates);
-            // this.setState({
-            //   countries: Object.keys(currencyData),
-            //   numbers: Object.values(currencyData),
-            // });
             setRates(Object.entries(data.rates));
             setMainCurrencies(mainCurrencies);
-            // setCountries(Object.keys(currencyData));
-            // setNumbers(Object.values(currencyData));
         });
   }
 
