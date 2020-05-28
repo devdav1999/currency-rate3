@@ -32,7 +32,7 @@ function App() {
     <div>
       <div className='TopNav'>
       <h1>Currency Rates Today</h1>
-      <h5>Please click on bar to find out current rate for Euro Base Currency</h5>
+      <h5>Please click on bar to find out current rate for Euro</h5>
       <div className='currencyNav'>
       {
         rates
@@ -53,6 +53,8 @@ function App() {
         .map(rate =>(
             <div className='Bar' style={{height: (1/rate[1] * 100) + '%'}}>
             {rate[0]}
+            <br></br>
+            {rate[1]}
             </div>
         ))
         }
