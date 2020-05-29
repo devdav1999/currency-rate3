@@ -24,7 +24,12 @@ function App() {
     setMainCurrencies([...mainCurrencies, currency])
 
   }
- 
+  
+
+  function removeCurrency(event){
+    const currency = event.target.textContent;
+    setMainCurrencies(mainCurrencies.filter(cur => cur !== currency));
+  }
 
   useEffect(doFetch, []);
 
@@ -37,6 +42,11 @@ function App() {
       {
         rates
         .map(rate =>(
+          mainCurrencies.includes(rate[0]) ?
+            <button className='countrySelection' onClick={removeCurrency}>
+            {rate[0]}
+            </button>
+          :
             <button className='countrySelection' onClick={addCurrency}>
             {rate[0]}
             </button>
