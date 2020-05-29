@@ -64,7 +64,7 @@ body{background: var(--bg-color);}
 	margin-top: 100px;
 	display:  grid;
 	grid-template-rows: 1fr;
-	grid-template-columns: repeat(9, 1fr);
+	grid-template-columns: repeat(32, 1fr);
 	grid-column-gap: 20px;
 	align-items: end;
 	height: 625px;
@@ -106,3 +106,4 @@ body{
 	padding: 0;
 	margin: 0;
 }
+
